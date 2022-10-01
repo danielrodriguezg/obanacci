@@ -1,2 +1,3 @@
-# obanacci
-Sucesión de Fibonacci de forma visual hecha con React.js. Tiene la cara de Obama.
+# Obanacci
+Basicamente es la sucesión de fibonacci (proporción aurea) de forma visual en React.js, pero con obama.
+~~no tengo amigos ni nada que hacer los fines de semana~~
