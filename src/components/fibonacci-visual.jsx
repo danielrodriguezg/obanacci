@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const FibonacciVisual = () => {
-  const [numeros, setNumeros] = useState(3);
+  const [numeros, setNumeros] = useState(2);
   const [arrFibonacci, setArrFibonacci] = useState([]);
   const [ordered, setOrdered] = useState(null);
 
@@ -12,7 +12,7 @@ const FibonacciVisual = () => {
 
   useEffect(() => {
     const createSecuence = () => {
-      if (numeros >= 3) {
+      if (numeros >= 4) {
         let numeroAnterior = 1,
           numeroAnteAnterior = 0;
         let list = [
@@ -52,7 +52,7 @@ const FibonacciVisual = () => {
   const divContainer = (idx, content) => {
     let cont = content.map((item, idx) => <div key={idx * 100}>{item}</div>);
     return (
-      <div key={idx} style={{ display: "flex" }}>
+      <div key={idx} className="div-cara" style={{ display: "flex" }}>
         {cont}
       </div>
     );
@@ -62,6 +62,7 @@ const FibonacciVisual = () => {
     return (
       <div
         key={idx}
+        className="div-cara"
         style={{
           width: size + "em",
           height: size + "em",
@@ -73,14 +74,14 @@ const FibonacciVisual = () => {
     );
   };
 
-  const validations = () => {
-    if (numeros >= 3) {
+  const Validations = () => {
+    if (numeros >= 4) {
       if (numeros < 15) {
         return ordered;
       }
       return <p>{numeros} Obamas son demasiados</p>;
     }
-    return <p>Debe ser mayor o igual a 3 Obamas</p>;
+    return <p>Debe ser mayor o igual a 4 Obamas</p>;
   };
 
   return (
@@ -101,8 +102,9 @@ const FibonacciVisual = () => {
           id="numerosInput"
           value={numeros}
           onChange={onChangeNumeros}
-          min="1"
-          max="15"
+          min="0"
+          max="16"
+          step="2"
         />
       </label>
       <br />
@@ -112,7 +114,7 @@ const FibonacciVisual = () => {
           justifyContent: "center"
         }}
       >
-        {validations()}
+        {<Validations/>}
       </div>
     </div>
   );
